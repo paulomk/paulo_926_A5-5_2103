@@ -54,3 +54,12 @@ bmw.honk();
 mazda.honk();
 audi.honk();
 kia.honk();
+
+//Racing
+let raceTurns = 7;
+honda.race(raceTurns);
+ford.race(raceTurns);
+bmw.race(raceTurns);
+mazda.race(raceTurns);
+audi.race(raceTurns);
+kia.race(raceTurns);
