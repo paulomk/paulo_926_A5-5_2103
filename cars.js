@@ -8,6 +8,32 @@ class Car {
         this.price = price;
         this.gas = gas;
     }
+    
+    honk() {
+        console.log("Tuut tuut");
+        console.log(`Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}, Price: ${this.price}`);
+    }
+
+    race(turns) {
+        for (let i = 1; i <= turns; i++) {
+            console.log(`Turn ${i}:`);
+            this.consumeGas();
+            console.log(`Gas remaining: ${this.gas} liters\n`);
+        }
+    }
+
+    consumeGas() {
+        const newCarGasLoss = 5;
+        const oldCarGasLoss = this.calculateGasLoss();
+        this.gas -= this.year === new Date().getFullYear() ? newCarGasLoss : oldCarGasLoss;
+    }
+
+    calculateGasLoss() {
+        const baseGasLoss = 5;
+        const yearsOld = new Date().getFullYear() - this.year;
+        return baseGasLoss + yearsOld;
+    }
+
 
 }
 
@@ -20,3 +46,11 @@ let mazda = new Car("Mazda", "CX-5", 2019, "White", 15000, 60);
 let audi = new Car("Audi", "Q7", 2018, "Silver", 52000, 47);
 let kia = new Car("Kia", "Forte", 2020, "Blue", 21000, 56);
 
+
+// call honk from cars
+honda.honk();
+ford.honk();
+bmw.honk();
+mazda.honk();
+audi.honk();
+kia.honk();
